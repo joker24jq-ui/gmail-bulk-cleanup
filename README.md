@@ -1,108 +1,78 @@
-
-text
 # Gmail Bulk Cleanup 🧹
-A **powerful, one-click Windows application** to bulk delete old Gmail emails. Works without Python installation — just download and run!
- ## ✨ Features
 
-- **One-Click Executable** - No Python installation needed
-- **19 Email Filter Options** - Delete by category, age, sender, keywords, and more
-- **Safe Multi-Confirmation System** - Review before you delete
-- **Real-Time Progress Tracking** - Watch your inbox get cleaned
-- **Secure OAuth Authentication** - Your credentials stay safe
-- **Beautiful Web Interface** - Runs in your browser
+A **one‑click Windows application** to bulk delete old Gmail emails. No Python setup needed — just download the `.exe` and run it.
 
-## 🚀 Quick Start
+## 🚀 Download
 
-1. **Download** the latest `.exe` from [Releases](https://github.com/joker24jq-ui/gmail-bulk-cleanup/releases)
-2. **Double-click** `Gmail Bulk Cleanup.exe`
-3. **Authorize** Gmail access when prompted (first time only)
-4. **Select** your filters and delete!
+The Windows executable is available on the Releases page:
 
-## 🎯 Common Use Cases
+👉 **Download here:** https://github.com/joker24jq-ui/gmail-bulk-cleanup/releases/latest
 
-### Delete Old Promotional Emails
-Filter: Promotions category
-Older than: 1 year
+On the releases page, download **`Gmail Bulk Cleanup.exe`**, then double‑click it to start the app.
 
-text
+## ✨ Features
 
-### Clean Up Social Notifications
-Filter: Social updates category
-Older than: 6 months
+- **Standalone .exe** – Works on Windows without installing Python
+- **Modern web UI** – Runs locally in your browser at `http://localhost:5000`
+- **19+ cleanup filters** – By category, age, read status, labels, custom search, and more
+- **Safe previews** – Check how many emails will be affected before deleting
+- **Batch deletion** – Uses Gmail API to delete in efficient batches
+- **Secure OAuth 2.0** – You sign in directly with Google; credentials aren’t stored on any server
 
-text
+## 🧩 How It Works
 
-### Remove Old Forums/Mailing Lists
-Filter: Forums category
-Older than: 2 years
+1. The `.exe` starts a local Flask web server on your machine.
+2. Your browser opens the **Gmail Bulk Cleanup** UI.
+3. When you click **Check Count / Delete**, the app:
+   - Sends a search query to the Gmail API
+   - Shows how many emails match
+   - Deletes them only after you confirm
 
-text
+All operations happen between **your computer and Google** using the official Gmail API.
 
-### Custom Search
-Use any Gmail search syntax:
-- `from:amazon@amazon.com older_than:1y`
-- `subject:receipt older_than:6m`
-- `has:attachment older_than:2y`
+## 📝 Example Cleanups
 
-## 🔒 Security & Privacy
+- Delete all **Promotions** older than 1 year  
+- Delete **Social** notifications older than 6 months  
+- Delete anything with `"receipt"` in the subject older than 6 months  
+- Use a custom query like:  
+  - `from:amazon.com older_than:1y`  
+  - `has:attachment older_than:2y`  
 
-- ✅ OAuth 2.0 authentication (your password never stored)
-- ✅ Credentials stored locally only
-- ✅ No data sent to third-party servers
-- ✅ Open source — audit the code yourself
-- ✅ Runs entirely on your machine
+## 🛠️ Run from Source (Optional)
 
-## 📋 System Requirements
-
-- **Windows 7** or later
-- **Internet connection**
-- **Gmail account**
-
-## 🛠️ Build from Source (Optional)
-
-If you want to build it yourself:
+If you prefer running the Python app instead of the `.exe`:
 
 ```bash
 git clone https://github.com/joker24jq-ui/gmail-bulk-cleanup.git
 cd gmail-bulk-cleanup
 pip install -r requirements.txt
 python run_app.py
-pyinstaller Gmail\ Bulk\ Cleanup.spec
-📝 Available Filters
-✉️ By Category: Promotions, Social, Updates, Forums
+Then open http://localhost:5000/ in your browser.
 
-🕐 By Age: Older than (1m, 3m, 6m, 1y, 2y)
+🧱 Building the .exe
+To rebuild the Windows executable yourself:
 
-👤 By Sender: Specific email addresses
+bash
+pip install -r requirements.txt
+pyinstaller "Gmail Bulk Cleanup.spec"
+The new executable will appear in the dist folder as Gmail Bulk Cleanup.exe.
 
-🔤 By Keyword: Custom Gmail search queries
+🔒 Security & Privacy
+Uses official Google OAuth 2.0 for Gmail access
 
-📎 With Attachments: Find and delete files
+Tokens are stored locally (token.pickle) and never uploaded by this app
 
-🏷️ By Label: Specific Gmail labels
+No analytics, tracking, or external servers
 
-⚠️ Important Notes
-Review Before Deleting - Use the preview to see what will be deleted
-
-Test First - Start with smaller batches to get comfortable
-
-No Undo - Deleted emails go to Gmail's Trash for 30 days
-
-Automatic Filter - Once enabled, Gmail's built-in filter auto-deletes emails older than 2 years
+Code is open source so you can inspect or modify it
 
 🤝 Contributing
-Found a bug? Want to suggest a feature? Open an Issue or submit a Pull Request!
+Issues, ideas, and pull requests are welcome.
+
+Open an Issue for bugs or feature requests
+
+Submit a Pull Request if you’d like to improve filters, UI, or docs
 
 📄 License
-MIT License - Feel free to use, modify, and distribute!
-
-🙏 Support
-If you find this useful, consider:
-
-⭐ Starring the repo
-
-📢 Sharing with friends
-
-🐛 Reporting bugs
-
-💡 Suggesting improvements
+This project is released under the MIT License.
